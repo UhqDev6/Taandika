@@ -77,7 +77,7 @@
   <section id="hero">
     <div class="hero-container">
       <h1>Sistem Pendukung Keputusan</h1>
-      <h2>Menggunakan Metode vikor</h2>
+      <h2>Menggunakan Metode Vikor</h2>
 
       <form method="POST" action="{{ route('login') }}" role="form" >
       @csrf
