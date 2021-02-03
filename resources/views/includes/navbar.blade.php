@@ -1,8 +1,12 @@
         <!-- Header-->
         <header id="header" class="header">
             <div class="top-left">
-                <div class="navbar-header">
-                   
+                <div class="navbar-header"> 
+                    VIKOR
+                    <!-- <a class="navbar-brand" href="./">SPK VIKOR</a> -->
+                    <!-- <a class="navbar-brand hidden" href="./"><img src="" alt="Logo"></a> -->
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+
                 </div>
             </div>
             <div class="top-right">
