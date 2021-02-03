@@ -9,24 +9,18 @@
                     </li>
                     <li class="menu-title">Barang</li><!-- /.menu-title -->
                     <li class="">
-                        <a href=""> <i class="menu-icon fa fa-list"></i>Lihat Barang</a>
+                        <a href="{{route('alternatif.index')}}"> <i class="menu-icon fa fa-list"></i>Alternatif</a>
                     </li>
                     <li class="">
-                        <a href=""> <i class="menu-icon fa fa-plus"></i>Tambah Barang</a>
-                    </li>
-
-                    <li class="menu-title">Foto Barang</li><!-- /.menu-title -->
-                    <li class="">
-                        <a href=""> <i class="menu-icon fa fa-list"></i>Lihat Foto Barang</a>
+                        <a href=""> <i class="menu-icon fa fa-list"></i>Kriteria</a>
                     </li>
                     <li class="">
-                        <a href=""> <i class="menu-icon fa fa-plus"></i>Tambah Foto Barang</a>
+                        <a href=""> <i class="menu-icon fa fa-list "></i>Sub Kriteria</a>
                     </li>
-
-                    <li class="menu-title">Transaksi</li><!-- /.menu-title -->
                     <li class="">
-                        <a href=""> <i class="menu-icon fa fa-list"></i>Lihat Transaksi</a>
+                        <a href=""> <i class="menu-icon fa fa-plus"></i>Hitung</a>
                     </li>
+                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
