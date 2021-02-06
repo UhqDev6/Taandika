@@ -7,7 +7,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="box-title">Data Alternatif</h4>
+                        
                     </div>
+                    <a href="{{ route('alternatif.create') }}" class="btn btn-primary btn-sm">
+                        <i class="fa fa-plus-square-o"> Tambah Data</i>
+                    </a>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
                             <table class="table">
