@@ -12,7 +12,7 @@
                         <a href="{{route('alternatif.index')}}"> <i class="menu-icon fa fa-list"></i>Alternatif</a>
                     </li>
                     <li class="">
-                        <a href=""> <i class="menu-icon fa fa-list"></i>Kriteria</a>
+                        <a href="{{ route('kriteria.index') }}"> <i class="menu-icon fa fa-list"></i>Kriteria</a>
                     </li>
                     <li class="">
                         <a href=""> <i class="menu-icon fa fa-list "></i>Sub Kriteria</a>

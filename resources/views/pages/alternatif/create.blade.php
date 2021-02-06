@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <strong>Tambah Data Barang</strong>
+            <strong>Tambah Data Alternatif</strong>
         </div>
         <div class="card-body card-block">
         @if ($errors->any())
@@ -26,12 +26,36 @@
                     @error('kode_alternatif') <div class="text-muted">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-group">
+                    <label for="name" class="form-control-label">No Kartu keluarga</label>
+                    <input type="text" 
+                           name="nokk" 
+                           value="{{ old('nokk') }}"
+                           class="form-control @error('nokk') is-invalid @enderror"/>
+                    @error('nokk') <div class="text-muted">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-group">
+                    <label for="name" class="form-control-label">No Nik</label>
+                    <input type="text" 
+                           name="nik" 
+                           value="{{ old('nik') }}"
+                           class="form-control @error('nik') is-invalid @enderror"/>
+                    @error('nik') <div class="text-muted">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-group">
                     <label for="type" class="form-control-label">Nama Lengkap</label>
                     <input type="text"
                            name="nama_alternatif"
                            value="{{ old('nama_alternatif') }}"
                            class="form-control @error('nama_alternatif') is-invalid @enderror"/>
                     @error('nama_alternatif') <div class="text-muted">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-group">
+                    <label for="type" class="form-control-label">Tempat Lahir</label>
+                    <input type="text"
+                           name="tempat_lahir"
+                           value="{{ old('tempat_lahir') }}"
+                           class="form-control @error('tempat_lahir') is-invalid @enderror"/>
+                    @error('tempat_lahir') <div class="text-muted">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-group">
                     <label for="type" class="form-control-label">Alamat</label>
@@ -51,7 +75,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block" type="submit">Tambah Barang</button>
+                    <button class="btn btn-primary btn-block" type="submit">Simpan</button>
                 </div>
             </form>
         </div>

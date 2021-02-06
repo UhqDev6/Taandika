@@ -12,6 +12,7 @@
                             <i class="fa fa-plus-square"></i>
                             Tambah Data
                     </a>
+                    &nbsp
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
                             <table class="table">
@@ -19,7 +20,10 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Kode Alternatif</th>
+                                        <th>No Kartu Keluarga</th>
+                                        <th>No Nik</th>
                                         <th>Nama Alternatif</th>
+                                        <th>Tempat Lahir</th>
                                         <th>Alamat</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Action</th>
@@ -30,14 +34,17 @@
                                   <tr>
                                     <td>{{ $no+1 }}</td>
                                     <td>{{ $item->kode_alternatif }}</td>
+                                    <td>{{ $item->nokk }}</td>
+                                    <td>{{ $item->nik }}</td>
                                     <td>{{ $item->nama_alternatif }}</td>
+                                    <td>{{ $item->tempat_lahir }}</td>
                                     <td>{{ $item->alamat }}</td>
                                     <td>{{ $item->jk }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('alternatif.edit', $item->kode_alternatif) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="" method="POST" class="d-inline">
+                                        <form action="{{ route('alternatif.destroy', $item->kode_alternatif) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-sm">
