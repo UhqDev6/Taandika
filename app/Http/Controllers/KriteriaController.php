@@ -98,7 +98,11 @@ class KriteriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Kriteria::findOrFail($id);
+        // dd($items);
+        return view('pages.kriteria.edit')->with([
+            'data' => $data
+        ]);
     }
 
     /**
@@ -110,7 +114,29 @@ class KriteriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'nama_kriteria' => 'required',
+            'atribut' => 'required',
+            'bobot' => 'required',
+        ],
+        [
+            'nama_kriteria.required' => 'Nama Kriteria harus di isi',
+            'atribut.required' => 'Atribut harus di isi',
+            'bobot.required' => 'Bobot harus di isi',
+        ]);
+
+        $kriteria = [
+            'nama_kriteria' => $request->nama_kriteria,
+            'atribut' => $request->atribut,
+            'bobot' => $request->bobot,
+        ];
+
+        $save = Kriteria::find($id)->update($kriteria);
+        if($save)
+            return redirect('kriteria');
+        else
+            return redirect()->back()->withInput();
+
     }
 
     /**
@@ -121,6 +147,9 @@ class KriteriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Kriteria::findOrFail($id);
+        $data->delete();
+        
+        return redirect()->route('kriteria.index');
     }
 }
