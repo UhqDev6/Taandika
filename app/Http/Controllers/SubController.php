@@ -22,7 +22,7 @@ class SubController extends Controller
         $data['subs'] = Sub::orderBy('kode_sub', 'asc')
             ->join('tb_kriteria', 'tb_kriteria.kode_kriteria', '=', 'tb_sub.kode_kriteria')
             ->where('nama_sub', 'like', '%'.$data['q'].'%')
-            ->paginate(25);
+            ->paginate(50);
         return view('pages.sub.index', $data);
     }
 
@@ -106,7 +106,30 @@ class SubController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'kode_kriteria' => 'required',
+            'nama_sub' => 'required',
+            'nilai' => 'required',
+        ],
+        [
+            'kode_kriteria.required' => 'Kriteria harus di isi',
+            'nama_sub.required' => 'Nama sub harus di isi',
+            'nilai.required' => 'Nilai harus di isi'
+        ]);
+
+        $sub = [
+            'kode_sub' => $request->kode_sub,
+            'kode_kriteria' => $request->kode_kriteria,
+            'nama_sub' => $request->nama_sub,
+            'nilai' => $request->nilai,
+        ];
+
+        $save = Sub::find($id)->update($sub);
+
+        if($save)
+            return redirect('sub');
+        else
+            return redirect()->back()->withInput();
     }
 
     /**
@@ -117,6 +140,9 @@ class SubController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Sub::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('sub.index');
     }
 }

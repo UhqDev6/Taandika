@@ -38,7 +38,7 @@
                                         <a href="{{ route('sub.edit', $item->kode_sub) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="{{ route('sub.destroy', $item->kode_kriteria) }}" method="POST" class="d-inline">
+                                        <form action="{{ route('sub.destroy', $item->kode_sub) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-sm">
