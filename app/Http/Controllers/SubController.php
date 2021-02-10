@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class SubController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +27,7 @@ class SubController extends Controller
         $data['subs'] = Sub::orderBy('kode_sub', 'asc')
             ->join('tb_kriteria', 'tb_kriteria.kode_kriteria', '=', 'tb_sub.kode_kriteria')
             ->where('nama_sub', 'like', '%'.$data['q'].'%')
-            ->paginate(25);
+            ->paginate(50);
         return view('pages.sub.index', $data);
     }
 

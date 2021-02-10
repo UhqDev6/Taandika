@@ -18,3 +18,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('alternatif','AlternatifController');
 Route::resource('kriteria', 'KriteriaController');
 Route::resource('sub','SubController');
+Route::resource('relasi','RelasiController');

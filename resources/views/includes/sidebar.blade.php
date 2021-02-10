@@ -18,6 +18,9 @@
                         <a href="{{ route('sub.index') }}"> <i class="menu-icon fa fa-list "></i>Sub Kriteria</a>
                     </li>
                     <li class="">
+                        <a href="{{ route('relasi.index') }}"> <i class="menu-icon fa fa-list "></i>Penilaian</a>
+                    </li>
+                    <li class="">
                         <a href=""> <i class="menu-icon fa fa-plus"></i>Hitung</a>
                     </li>
                     
