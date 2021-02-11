@@ -12,7 +12,7 @@
                     <div class="panel-body">
 			    <div class="panel panel-default">
 				<div class="panel-heading">
-					<form action="" class="form-inline" method="post">
+					<form action="{{URL('relasi?kode_alternatif=' . $kode_alternatif )}}" class="form-inline" method="post">
 						{{ csrf_field() }}
 						<div class="form-group">
 							<select class="form-control" name="kode_alternatif">
@@ -31,6 +31,8 @@
 						</div>
 					</form>
 				</div>
+                </div>
+                </div>
                 &nbsp
 				<div class="card-body--">
                     <div class="table-stats order-table ov-h">

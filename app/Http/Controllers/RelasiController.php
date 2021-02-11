@@ -22,7 +22,7 @@ class RelasiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $data['q'] = $request->input('q');
         $alternatifs = Alternatif::all();
@@ -31,6 +31,7 @@ class RelasiController extends Controller
         {
             $data['alternatifs'][$row->kode_alternatif] = $row->nama_alternatif;
         }
+        $data['kode_alternatif'] = $request->input('kode_alternatif');
 
         $kriterias = Kriteria::all();
         $data['kriterias'] = array();
@@ -46,7 +47,7 @@ class RelasiController extends Controller
             $data['subs'][$row->kode_sub] = $row->nama_sub;
         }
 
-        $nilais = DB:: select("SELECT * FROM tb_rel_alternatif");
+        $nilais = DB:: select("SELECT * FROM tb_rel_alternatif WHERE kode_alternatif = '$data[kode_alternatif]'");
         $data['nilais'] = array();
         foreach ($nilais as $row)
         {
