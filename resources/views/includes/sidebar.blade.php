@@ -21,7 +21,7 @@
                         <a href="{{ route('relasi.index') }}"> <i class="menu-icon fa fa-list "></i>Penilaian</a>
                     </li>
                     <li class="">
-                        <a href=""> <i class="menu-icon fa fa-plus"></i>Hitung</a>
+                        <a href="{{ route('perhitungan.index') }}"> <i class="menu-icon fa fa-plus"></i>Hitung</a>
                     </li>
                     
                 </ul>

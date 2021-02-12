@@ -9,10 +9,10 @@
                         <h4 class="box-title">Penilaian</h4>
                     </div>
 
-                    <div class="panel-body">
+                <div class="panel-body">
 			    <div class="panel panel-default">
 				<div class="panel-heading">
-					<form action="{{URL('relasi?kode_alternatif=' . $kode_alternatif )}}" class="form-inline" method="post">
+					<form action="{{ route('relasi.index') }}" class="form-inline" method="POST">
 						{{ csrf_field() }}
 						<div class="form-group">
 							<select class="form-control" name="kode_alternatif">
@@ -27,7 +27,7 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Add</button>
+							<button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Tambahkan </button>
 						</div>
 					</form>
 				</div>
@@ -39,6 +39,7 @@
                     <table class="table">
                                 <thead>
                                     <tr>
+                                        <th>Kode Alternatif</th>
                                         <th>Nama Alternatif</th>
                                         @foreach($kriterias as $key => $val)
                                         <th>{{ $val }}</th>
@@ -49,17 +50,18 @@
                                 <tbody>
                                   @forelse ($nilais as $key => $val)
                                   <tr>
+                                    <td>{{ $key }}</td>
                                     <td>{{ $alternatifs[$key] }}</td>
                                     @foreach($val as $k => $v)
                                     <td><?= isset($subs[$v]) ? $subs[$v] : '' ?></td>
                                     @endforeach
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('relasi.edit', $key) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="" method="POST" class="d-inline">
+                                        <form action="{{ URL("relasi/$key?kode_alternatif=$kode_alternatif") }}" method="POST" class="d-inline">
                                             @csrf
-                                            @method('delete')
+                                            @method('DELETE')
                                             <button class="btn btn-danger btn-sm">
                                                 <i class="fa fa-trash"></i>
                                             </button>
@@ -75,11 +77,8 @@
                                   @endforelse
                                 </tbody>
                             </table>
+                        </div>
                     </div>
-				</div>
-			</div>
-		</div>
-                   
                 </div>
             </div>
         </div>

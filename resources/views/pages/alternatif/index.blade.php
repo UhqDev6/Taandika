@@ -18,7 +18,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
                                         <th>Kode Alternatif</th>
                                         <th>No Kartu Keluarga</th>
                                         <th>No Nik</th>
@@ -32,7 +31,6 @@
                                 <tbody>
                                   @forelse ($data as $no => $item)
                                   <tr>
-                                    <td>{{ $no+1 }}</td>
                                     <td>{{ $item->kode_alternatif }}</td>
                                     <td>{{ $item->nokk }}</td>
                                     <td>{{ $item->nik }}</td>

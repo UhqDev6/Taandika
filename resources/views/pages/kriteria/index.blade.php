@@ -18,7 +18,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
                                         <th>Kode Kriteria</th>
                                         <th>Nama Kriteria</th>
                                         <th>Atribut</th>
@@ -29,7 +28,6 @@
                                 <tbody>
                                   @forelse ($kriteria as $no => $item)
                                   <tr>
-                                    <td>{{ $no+1 }}</td>
                                     <td>{{ $item->kode_kriteria }}</td>
                                     <td>{{ $item->nama_kriteria }}</td>
                                     <td>{{ $item->atribut }}</td>
