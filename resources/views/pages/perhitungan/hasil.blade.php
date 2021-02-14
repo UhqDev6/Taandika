@@ -20,14 +20,14 @@ class VIKOR
         $this->bobot = $bobot;
         $this->index_vikor = $index_vikor;
         $this->minmax();
-        $this->normal();
+        $this->normalisasi();
         $this->terbobot();
         $this->total_sr();
         $this->nilai_sr();
         $this->nilai_v();
-        $this->rank();
+        $this->peringkat();
     }
-    function rank()
+    function peringkat()
     {
         $data = $this->nilai_v;
         asort($data);
@@ -44,7 +44,6 @@ class VIKOR
             $v = $this->index_vikor;
            
             $s = $this->total_s[$key];
-           
           
             $r = $this->total_r[$key];
          
@@ -90,7 +89,7 @@ class VIKOR
         }
         $this->terbobot = $arr;
     }
-    function normal()
+    function normalisasi()
     {
         $arr = array();
         foreach ($this->data as $key => $val) {
@@ -98,7 +97,7 @@ class VIKOR
                 $arr[$key][$k] = ($this->minmax[$k]['max'] - $v) / ($this->minmax[$k]['max'] - $this->minmax[$k]['min']);
             }
         }
-        $this->normal = $arr;
+        $this->normalisasi = $arr;
     }
     function minmax()
     {

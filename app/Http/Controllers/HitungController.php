@@ -52,38 +52,36 @@ class HitungController extends Controller
      */
     public function store(Request $request)
     {
-        /** $data adalah array data yang akan dikirim di view */
-        // $data['title'] = "Hasil Perhitungan"; //judul halaman
-        $data['prioritas'] = $request->prioritas; //menyimpan inputan kriteria
+        
 
-        $kriterias = Kriteria::all(); //mengambil semua kriteria
-        /** Menyimpan kriteria dalam array */
+        $kriterias = Kriteria::all();
+      
         $data['kriterias'] = array();
         foreach ($kriterias as $row) {
             $data['kriterias'][$row->kode_kriteria] = $row;
         }
 
-        $alternatifs = Alternatif::all(); //mengambil data alternatif
-        /** Menyimpan alternatif dalam array */
+        $alternatifs = Alternatif::all(); 
+   
         $data['alternatifs'] = array();
         foreach ($alternatifs as $row) {
             $data['alternatifs'][$row->kode_alternatif] = $row->nama_alternatif;
         }
 
-        $sub = Sub::all(); //mengambil data sub kriteria
-        /** Menyimpan sub kriteria dalam array */
+        $sub = Sub::all(); 
+      
         $data['subs'] = array();
         foreach ($sub as $row) {
             $data['subs'][$row->kode_sub] = $row;
         }
 
         $kode_alternatif = $request->input('kode_alternatif');
-        /** mengambil data nilai alternatif */
+       
         $rel_alternatif = DB::select("SELECT * FROM tb_rel_alternatif ORDER BY kode_alternatif, kode_kriteria");
 
         $data['selected'] = $request->selected;
        
-        /** Menyimpan data nilai alternatif dalam array */
+     
         $data['rel_alternatif'] = array();
      
         $data['rel_nilai'] = array();
@@ -94,11 +92,11 @@ class HitungController extends Controller
             }
         }
 
-        if ($data !=0) { //jika tidak ada kriteria yang sama
+        if ($data !=0) { 
         //    dd($data);
-            return view('pages.perhitungan.hasil', $data); //memanggil view hitung.hasil
+            return view('pages.perhitungan.hasil', $data);
         } else {
-            /** kembali ke view form.hasil dengan pesan error */
+           
             return redirect()->back()->withErrors(['Pilih kriteria yang berbeda'])->withInput();
         }
     }
