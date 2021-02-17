@@ -51,19 +51,19 @@ class KriteriaController extends Controller
      */
     public function store(Request $request)
     {
-        // $validateData = $request->validate([
-        //     'kode_kriteria' => 'required|unique:tb_kriteria',
-        //     'nama_kriteria' => 'required',
-        //     'atribut' => 'required',
-        //     'bobot' => 'required',
-        // ],
-        // [
-        //     'kode_kriteria.required' => 'Kode Kriteria harus di isi',
-        //     'kode_kriteria.unique' => 'kode kriteria harus unik',
-        //     'nama_kriteria.required' => 'Nama Kriteria harus di isi',
-        //     'atribut.required' => 'Atribut harus di isi',
-        //     'bobot.required' => 'Bobot harus di isi', 
-        // ]);
+        $validateData = $request->validate([
+            'kode_kriteria' => 'required|unique:tb_kriteria',
+            'nama_kriteria' => 'required',
+            'atribut' => 'required',
+            'bobot' => 'required',
+        ],
+        [
+            'kode_kriteria.required' => 'Kode Kriteria harus di isi',
+            'kode_kriteria.unique' => 'kode kriteria harus unik',
+            'nama_kriteria.required' => 'Nama Kriteria harus di isi',
+            'atribut.required' => 'Atribut harus di isi',
+            'bobot.required' => 'Bobot harus di isi', 
+        ]);
 
         $kriteria = [
             'kode_kriteria' => $request->kode_kriteria,
