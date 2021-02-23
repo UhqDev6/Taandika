@@ -82,7 +82,7 @@ class VIKOR
     function terbobot()
     {
         $arr = array();
-        foreach ($this->normal as $key => $val) {
+        foreach ($this->normalisasi as $key => $val) {
             foreach ($val as $k => $v) {
                 $arr[$key][$k] = $v * $this->bobot[$k];
             }
@@ -214,7 +214,7 @@ $vikor = new VIKOR($rel_nilai, $atribut, $bobot, 0.5);
                     <?php endforeach ?>
                 </tr>
             </thead>
-            <?php foreach ($vikor->normal as $key => $val) : ?>
+            <?php foreach ($vikor->normalisasi as $key => $val) : ?>
                 <tr>
                     <td><?= $key ?></td>
                     <td><?= $alternatifs[$key] ?></td>

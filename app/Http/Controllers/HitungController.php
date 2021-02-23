@@ -77,14 +77,14 @@ class HitungController extends Controller
 
         $kode_alternatif = $request->input('kode_alternatif');
        
-        $rel_alternatif = DB::select("SELECT * FROM tb_rel_alternatif ORDER BY kode_alternatif, kode_kriteria");
+        $rel_alternatif = DB::select("SELECT * FROM tb_rel_alternatif ");
 
         $data['selected'] = $request->selected;
-       
      
         $data['rel_alternatif'] = array();
-     
+       
         $data['rel_nilai'] = array();
+
         foreach ($rel_alternatif as $row) {
             if (in_array($row->kode_alternatif, $data['selected'])) {
                 $data['rel_alternatif'][$row->kode_alternatif][$row->kode_kriteria] = $data['subs'][$row->kode_sub]->nama_sub;

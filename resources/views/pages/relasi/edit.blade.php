@@ -38,7 +38,7 @@
                 @foreach($subs as $key => $val)
                 <div class="form-group">
                     <label for="type" class="form-control-label">{{ $kriterias[$key] }}<span class="text-danger">*</span></label>
-                    <select class="form-control @error('nilai') is-invalid @enderror" name="nilai[{{ $key }}]">
+                    <select class="form-control @error('nilai') is-invalid @enderror "  name="nilai[{{ $key }}]">
                         <option value="">Pilih</option>
                         @foreach($val as $k => $v)
                         @if($k==old('nilai.'.$key, $nilais[$key]))
