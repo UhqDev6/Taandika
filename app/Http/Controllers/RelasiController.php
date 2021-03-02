@@ -173,7 +173,7 @@ class RelasiController extends Controller
         
         // $kode_alternatif = $request->input('kode_alternatif');
         $validatedData = $request->validate([
-            'nilai' => 'required',
+            'nilai.*' => 'required',
         ],
         [
             'nilai.required' => 'Data harus di isi',
@@ -186,7 +186,7 @@ class RelasiController extends Controller
                 'kode_alternatif' => $request->kode_alternatif,
                 'kode_kriteria' => $key,
                 'kode_sub' => $val,
-                'nilai' => $request->nilai,
+                
                
             ];
 
