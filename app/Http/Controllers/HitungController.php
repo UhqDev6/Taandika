@@ -85,8 +85,9 @@ class HitungController extends Controller
        
         /** Menyimpan data nilai alternatif dalam array */
         $data['rel_alternatif'] = array();
-     
+
         $data['rel_nilai'] = array();
+        
         foreach ($rel_alternatif as $row) {
             if (in_array($row->kode_alternatif, $data['selected'])) {
                 $data['rel_alternatif'][$row->kode_alternatif][$row->kode_kriteria] = $data['subs'][$row->kode_sub]->nama_sub;
