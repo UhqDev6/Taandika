@@ -11,6 +11,6 @@ class Alternatif extends Model
     public $incrementing = false;
     protected $fillable = 
     [
-        'kode_alternatif','nokk','nik','nama_alternatif','tempat_lahir','alamat','jk'
+        'kode_alternatif','nokk','nik','nama_alternatif','tempat_lahir','alamat','jk','prefix'
     ];
 }

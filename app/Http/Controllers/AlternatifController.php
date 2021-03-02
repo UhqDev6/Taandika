@@ -8,6 +8,7 @@ use App\Alternatif;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class AlternatifController extends Controller
 {
@@ -26,7 +27,9 @@ class AlternatifController extends Controller
  
         $data['q'] = $request->input('q');
         $data['title'] = 'Data Alternatif';
-        $data = Alternatif::all();
+        $data = Alternatif::orderBy('kode_alternatif','ASC')->get();
+
+        
         // $data['alternatifs'] = Alternatif::where('nama_alternatif','like','%'. $data['q'] . '%')
         //     ->orderBy('Kode_alternatif')
         //     ->paginate(25);
@@ -74,6 +77,7 @@ class AlternatifController extends Controller
         ]);
 
          $alternatif = [
+            
              'kode_alternatif' => $request->kode_alternatif,
              'nokk' => $request->nokk,
              'nik' => $request->nik,

@@ -107,6 +107,9 @@ class RelasiController extends Controller
             DB::statement("INSERT INTO tb_rel_alternatif (kode_alternatif, kode_kriteria) SELECT '$kode_alternatif', kode_kriteria FROM tb_kriteria");
             return redirect()->back()->withInput();
         }
+
+
+        
     
         }
     /**
@@ -167,14 +170,27 @@ class RelasiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         // $kode_alternatif = $request->input('kode_alternatif');
+        $validatedData = $request->validate([
+            'nilai.*' => 'required',
+        ],
+        [
+            'nilai.required' => 'Data harus di isi',
+          
+        ]);
         foreach ($request->nilai as $key => $val)
         {
+    
             $nilai = [
                 'kode_alternatif' => $request->kode_alternatif,
                 'kode_kriteria' => $key,
                 'kode_sub' => $val,
+                
+               
             ];
+
+   
 
             DB::statement("UPDATE tb_rel_alternatif
                 SET kode_sub=:kode_sub

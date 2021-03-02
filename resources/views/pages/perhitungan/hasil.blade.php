@@ -20,14 +20,14 @@ class VIKOR
         $this->bobot = $bobot;
         $this->index_vikor = $index_vikor;
         $this->minmax();
-        $this->normal();
+        $this->normalisasi();
         $this->terbobot();
         $this->total_sr();
         $this->nilai_sr();
         $this->nilai_v();
-        $this->rank();
+        $this->peringkat();
     }
-    function rank()
+    function peringkat()
     {
         $data = $this->nilai_v;
         asort($data);
@@ -44,7 +44,6 @@ class VIKOR
             $v = $this->index_vikor;
            
             $s = $this->total_s[$key];
-           
           
             $r = $this->total_r[$key];
          
@@ -57,13 +56,8 @@ class VIKOR
             $r_plus = $this->nilai_r['min'];
             
 
-            //  $c = $v * ($s - $s_plus);
-            //  $d = ($s_min - $s_plus) + (1 - $v) * ($r - $r_plus);
-            //  $f = ($r_min - $r_plus);
-            //  ($f==null) ? dd("null") : dd("tidak null");
-            // dd($c." -- ".$d." -- ".$f);
             
-            $this->nilai_v[$key] = (($r_min - $r_plus)==null) ? ($r_min - $r_plus) / $v * ($s - $s_plus) / ($s_min - $s_plus) + (1 - $v) * ($r - $r_plus) : ($r_min - $r_plus) / $v * ($s - $s_plus) / ($s_min - $s_plus) + (1 - $v) * ($r - $r_plus) / ($r_min - $r_plus) ;
+            $this->nilai_v[$key] = (($r_min - $r_plus)==null) ? ($r_min - $r_plus) / $v * ($s - $s_plus) : ($r_min - $r_plus) / $v * ($s - $s_plus) / ($s_min - $s_plus) + (1 - $v) * ($r - $r_plus) / ($r_min - $r_plus) ;
         }
     }
     function nilai_sr()
@@ -83,22 +77,22 @@ class VIKOR
     function terbobot()
     {
         $arr = array();
-        foreach ($this->normal as $key => $val) {
+        foreach ($this->normalisasi as $key => $val) {
             foreach ($val as $k => $v) {
                 $arr[$key][$k] = $v * $this->bobot[$k];
             }
         }
         $this->terbobot = $arr;
     }
-    function normal()
+    function normalisasi()
     {
         $arr = array();
         foreach ($this->data as $key => $val) {
             foreach ($val as $k => $v) {
-                $arr[$key][$k] = ($this->minmax[$k]['max'] - $v) / ($this->minmax[$k]['max'] - $this->minmax[$k]['min']);
+                $arr[$key][$k] = (($this->minmax[$k]['max'] - $v)==null) ? ($this->minmax[$k]['max'] - $v) : ($this->minmax[$k]['max'] - $v) / ($this->minmax[$k]['max'] - $this->minmax[$k]['min']);
             }
         }
-        $this->normal = $arr;
+        $this->normalisasi = $arr;
     }
     function minmax()
     {
@@ -215,7 +209,7 @@ $vikor = new VIKOR($rel_nilai, $atribut, $bobot, 0.5);
                     <?php endforeach ?>
                 </tr>
             </thead>
-            <?php foreach ($vikor->normal as $key => $val) : ?>
+            <?php foreach ($vikor->normalisasi as $key => $val) : ?>
                 <tr>
                     <td><?= $key ?></td>
                     <td><?= $alternatifs[$key] ?></td>
