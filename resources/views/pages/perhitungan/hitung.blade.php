@@ -18,7 +18,7 @@
                     <div class="list-group">
                         <div class="list-group-item">
                             <label>
-                                <input type="checkbox" id="selectAll" /> Choose all
+                                <input type="checkbox" id="selectAll" /> Pilih Semua
                             </label>
                         </div>
                         <?php foreach ($alternatifs as $key => $val) : ?>
