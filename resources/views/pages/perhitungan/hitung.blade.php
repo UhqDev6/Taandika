@@ -32,7 +32,7 @@
                     &nbsp;
                     &nbsp;
                     <div class="panel-footer">
-                        <button class="btn btn-primary hitung"><i class="glyphicon glyphicon-signal"></i> Count</button>
+                        <button class="btn btn-primary hitung"><i class="glyphicon glyphicon-signal"></i> Menghitung </button>
                     </div>
             </form>
 
