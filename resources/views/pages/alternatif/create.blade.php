@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="name" class="form-control-label">No Kartu keluarga</label>
-                    <input type="text" 
+                    <input type="number" 
                            name="nokk" 
                            value="{{ old('nokk') }}"
                            class="form-control @error('nokk') is-invalid @enderror"/>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="name" class="form-control-label">No Nik</label>
-                    <input type="text" 
+                    <input type="number" 
                            name="nik" 
                            value="{{ old('nik') }}"
                            class="form-control @error('nik') is-invalid @enderror"/>

@@ -24,11 +24,8 @@ class AlternatifController extends Controller
      */
     public function index(Request $request)
     {
- 
-        $data['q'] = $request->input('q');
-        $data['title'] = 'Data Alternatif';
+       
         $data = Alternatif::orderBy('kode_alternatif','ASC')->get();
-
         
         // $data['alternatifs'] = Alternatif::where('nama_alternatif','like','%'. $data['q'] . '%')
         //     ->orderBy('Kode_alternatif')
@@ -56,6 +53,7 @@ class AlternatifController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validatedData = $request->validate([
             'kode_alternatif' => 'required|unique:tb_alternatif',
             'nokk' => 'required',
